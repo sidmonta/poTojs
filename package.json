@@ -1,0 +1,31 @@
+{
+  "name": "potojs",
+  "version": "1.0.0",
+  "description": "Convert translate po file into a javascript's dictionary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidmonta/poTojs.git"
+  },
+  "keywords": [
+    "PO",
+    "Translate",
+    "poTojs"
+  ],
+  "author": "Sidmonta <sidmonta.15@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidmonta/poTojs/issues"
+  },
+  "homepage": "https://github.com/sidmonta/poTojs#readme",
+  "dependencies": {
+    "po2json": "^0.4.5"
+  },
+  "devDependencies": {
+    "webpack": "^3.5.5"
+  }
+}
