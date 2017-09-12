@@ -1,3 +1,3 @@
 require('./languages/it_IT.po');
 
-console.log(__('If checked alternate names for the set will be duplicated.'));
+console.log(__('Password does not match confirmation. Please try again.'));

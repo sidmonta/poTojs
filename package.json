@@ -1,10 +1,9 @@
 {
-  "name": "potojs",
+  "name": "potojs-loader",
   "version": "1.0.0",
   "description": "Convert translate po file into a javascript's dictionary",
-  "main": "index.js",
+  "main": "./loaders/transformPo-loader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --config webpack.config.js"
   },
   "repository": {
@@ -17,7 +16,7 @@
     "poTojs"
   ],
   "author": "Sidmonta <sidmonta.15@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sidmonta/poTojs/issues"
   },

@@ -17,8 +17,10 @@ module.exports = {
       {
         test: /\.po$/,
         use: [
-          'transformPO-loader'
-        ]
+          {loader: 'transformPO-loader', options: {
+            'alldir': false
+          }}
+        ],
       }
     ]
   }
