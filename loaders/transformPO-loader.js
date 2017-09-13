@@ -55,9 +55,9 @@ module.exports = function (content) {
       Promise.all(promises).then(function () {
         messages = JSON.stringify(messages);
         callback(null, `
-        window.__ = function (s, l, d) {
-          var m = ${messages};
-          return (m.length > 1) ? m[l][s] || d || s : m[Object.keys(m)[0]][s] || d || s; };
+        window.__ = function(s,l,d){
+          var m=${messages};
+          return (m.length > 1) ? m[l][s] || d || s : m[Object.keys(m)[0]][s] || d || s;};
         `);
       });
 

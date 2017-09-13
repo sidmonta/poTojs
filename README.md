@@ -21,7 +21,7 @@ require('./languages/it_IT.po');
 console.log(__it('Test to translate'));
 // Test da tradurre
 
-// or (if you have more language)
+// or (if you have more language ==> alldir = true)
 console.log(__('Test to translate', 'it', 'default traduction'))
 ```
 
@@ -41,4 +41,4 @@ The function ```__(testToTranslate, [lang, [default text]])```. If the traductio
  }
 ```
 
-If the ```alldir``` option is set to true, the parser scan all directory of the po file looking for all other po file and merge all the translates in only one big javascript object.
+If the ```alldir``` option is set to true, the parser scan all directory of the po file looking for all other po file in the same directory and merge all the translates in only one big javascript object.

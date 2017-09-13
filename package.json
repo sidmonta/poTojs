@@ -13,7 +13,10 @@
   "keywords": [
     "PO",
     "Translate",
-    "poTojs"
+    "poTojs",
+    "webpack",
+    "webpack-loader",
+    "loader"
   ],
   "author": "Sidmonta <sidmonta.15@gmail.com>",
   "license": "MIT",
