@@ -1,7 +1,7 @@
 const po2json = require('po2json');
 const path = require('path');
 const fs = require('fs');
-const loaderUtils = require("loader-utils");
+const loaderUtils = require('loader-utils');
 
 
 module.exports.raw = true;
