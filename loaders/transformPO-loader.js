@@ -76,7 +76,7 @@ module.exports = function (content) {
       callback(null, `
       window.__${lang} = function (s,d){
         var m=${messages};
-        return m[${lang}][s] || d || s;};
+        return m['${lang}'][s] || d || s;};
       `);
     });
   }

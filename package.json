@@ -1,6 +1,6 @@
 {
   "name": "potojs-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert translate po file into a javascript's dictionary",
   "main": "./loaders/transformPo-loader.js",
   "scripts": {
