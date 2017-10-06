@@ -34,7 +34,11 @@ The function ```__(testToTranslate, [lang, [default text]])```. If the traductio
     {
       loader: 'potojs-loader',
       options: {
-        'alldir': false
+        'alldir': false,
+        'setName': function (filename) {
+          ...
+          return language // ex: en | it | es ...
+        }
       }
     }
   ],
@@ -42,3 +46,6 @@ The function ```__(testToTranslate, [lang, [default text]])```. If the traductio
 ```
 
 If the ```alldir``` option is set to true, the parser scan all directory of the po file looking for all other po file in the same directory and merge all the translates in only one big javascript object.
+
+You can pass a function for generate a custom "**lang**" param for every po file with the ```setName``` option.
+By default the "lang" param is the first two character in the language code present in the name of file; example: if the file's name is *wp-theme-en_US.po* the "lang" param is *en*

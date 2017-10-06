@@ -44,7 +44,22 @@ module.exports = function (content) {
             fs.readFile(`${dir}/${file}`, function (err2, buffer) {
               if (err2) { reject(); }
               let jsonData = po2json.parse(buffer);
-              let lang = file.substring(0, 2);
+              let lang = 'en';
+
+
+              if (options.setName && options.setName instanceof Function) {
+                lang = options.setName(file);
+              } else {
+                let possibileName = file.match(/([a-z]{2})_[A-Z]{2}/)[1];
+                if (possibileName && possibileName[1].length === 2) {
+                  lang = possibileName[1];
+                }
+              }
+
+              if (!lang || lang === '') {
+                console.error('Language name not found in the file name');
+                reject();
+              }
 
               messages[lang] = forMat(jsonData);
               resolve();
@@ -68,16 +83,29 @@ module.exports = function (content) {
     fs.readFile(this.resource, function (err2, buffer) {
       if (err2) { console.error(err2); return; }
       let jsonData = po2json.parse(buffer);
-      let lang = fileName.substring(0, 2).toLocaleLowerCase();
 
-      messages[lang] = forMat(jsonData);
+      let lang = 'en';
+      if (options.setName && options.setName instanceof Function) {
+        lang = options.setName(fileName);
+      } else {
+        let possibileName = fileName.match(/([a-z]{2})_[A-Z]{2}/)[1];
+        if (possibileName && possibileName[1].length === 2) {
+          lang = possibileName[1];
+        }
+      }
 
-      messages = JSON.stringify(messages);
-      callback(null, `
-      window.__${lang} = function (s,d){
-        var m=${messages};
-        return m['${lang}'][s] || d || s;};
-      `);
+      if (!lang || lang === '') {
+        console.error('Language name not found in the file name');
+      } else {
+        messages[lang] = forMat(jsonData);
+
+        messages = JSON.stringify(messages);
+        callback(null, `
+        window.__${lang} = function (s,d){
+          var m=${messages};
+          return m['${lang}'][s] || d || s;};
+        `);
+      }
     });
   }
 };
